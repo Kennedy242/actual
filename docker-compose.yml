@@ -10,8 +10,12 @@ services:
     image: actual-development
     environment:
       - HTTPS
+      - BROWSER=0
+
     ports:
       - '3001:3001'
     volumes:
       - '.:/app'
+      - /app/node_modules # anonymous volume — shields node_modules from the bind mount
+    command: null
     restart: 'no'
